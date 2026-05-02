@@ -8,10 +8,56 @@
 <body>
     
     <div id="app">
-        <h1>{{ message }}</h1>
+        <h1><p v-text="message"></p></h1>
+        <h2><p >{{sayHello("baddi youssef") }}</p></h2>
+
+        <h3>{{ message.length}}</h3>
+
+        <ul>
+            <li v-for="(item,index) in tab" :key="index">{{index}}-{{ item }}</li>
+        </ul>
+
+        <ul>
+            <li>{{ tab[0] }}</li>
+            <li>{{ tab[0] %2 ==0 ? "pair" : "impaire" }}</li>
+            <li>{{ tab['1'] }}</li>
+            <li>{{ tab["1"] }}</li>
+            <li> {{ tab.length }}</li>
+                        
+            <li> {{ Math.sqrt(4) }}</li>
+            <!-- <li> {{ var =4}}</li> -->
+
+        </ul>
+
+        <ul>
+            <li>{{ personne.nom }}</li>
+            <li>{{ personne.prenom }}</li>
+            <li>{{ personne.id }}</li>
+        </ul>
+
+        <ul>
+            <li v-for="(value, key) in personne" :key="key">{{ key }}: {{ value }}</li>
+        </ul>
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
+
+
+<!-- 
+v-bind
+v-on
+v-model
+v-html
+.....
+cutom directives
+-> structral directives: modife le DOM
+v-for
+v-if
+v-else
+v-else-if
+v-show
+-> attriubute directives: modifie l'apparence d'un item html 
+-->
