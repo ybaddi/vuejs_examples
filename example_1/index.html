@@ -38,6 +38,66 @@
         <ul>
             <li v-for="(value, key) in personne" :key="key">{{ key }}: {{ value }}</li>
         </ul>
+
+
+        <ul>
+            <li v-for="item in personnes" :key="item.id">
+                {{ item.nom }} {{ item.prenom }}</li>
+        </ul>
+
+        <ul>
+            <li v-for="{id,nom,prenom} in personnes" :key="d">
+                {{ nom }} {{ prenom }}</li>
+        </ul>
+
+        <ul>
+            <li v-for="({id,nom,prenom},ind) in personnes" :key="id">
+               {{ ind+1 }} - {{ nom }} {{ prenom }}</li>
+        </ul>
+
+        <ul>
+            <li v-for="elt in 3" :key="elt">
+               {{ elt }}</li>
+        </ul>
+
+        <ul>
+            <li v-for="elt of 3" :key="elt">
+               {{ elt }}</li>
+        </ul>
+
+
+        <ul>
+            <li v-if="tab[1]%2 !=0">
+               {{ tab[1] }} est impaire</li>
+               <li v-else>
+               {{ tab[1] }} est paire</li>
+        </ul>
+
+        <ul>
+            <template v-if="tab[1]%2 !=0">
+                <li>
+                    {{ tab[1] }} est impaire
+                </li>
+            </template>
+            <template v-else>
+                <li>
+                    {{ tab[1] }} est paire
+                </li>
+            </template>
+        </ul>
+
+        <ul>
+            <template v-for="item in tab" :key="item">
+                <li v-if="item%2 !=0">
+                    {{ item }} est impaire
+                </li>
+            
+                <li v-else>
+                    {{ item }} est paire
+                </li>
+            </template>
+        </ul>
+
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
