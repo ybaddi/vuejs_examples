@@ -98,6 +98,27 @@
             </template>
         </ul>
 
+        <h4>Exercice</h4>
+        <ul>
+            <template v-for="item in students" :key="item">
+                <li v-if="item.note > 0 && item.note < 10">
+                    {{ item.nom }} est echec
+                </li>
+            
+                <li v-else-if="item.note >= 10 && item.note < 13">
+                     {{ item.nom }} est moyen
+                </li>
+
+                <li v-else-if="item.note >= 13 && item.note < 16">
+                     {{ item.nom }} est bien
+                </li>
+
+                <li v-else>
+                     {{ item.nom }} est très bien
+                </li>
+            </template>
+        </ul>
+
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>

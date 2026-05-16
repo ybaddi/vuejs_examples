@@ -10,6 +10,12 @@ const App = Vue.createApp({
         { id: 102, nom: "baddi3", prenom: "youssef3" },
         { id: 103, nom: "baddi4", prenom: "youssef4" },
       ],
+      students: [
+        { id: 100, note: 18, nom: "baddi1", prenom: "youssef1" },
+        { id: 101, note: 16, nom: "baddi2", prenom: "youssef2" },
+        { id: 102, note: 5, nom: "baddi3", prenom: "youssef3" },
+        { id: 103, note: 12, nom: "baddi4", prenom: "youssef4" },
+      ],
       name: "baddi youssef",
     };
   },
