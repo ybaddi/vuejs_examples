@@ -1,24 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-        <style>
-            .rouge{
-                color: red;
-            }
-            .bleu{
-                color: blue;
-            }
-            .gras{
-                font-weight: bold;
-            }
-            </style>
-</head>
-<body>
-    
-    <div id="app">
+export default {
+  data() {
+    return {
+      message: "Hello from component",
+      tab: [2, 4, 5, 8],
+      personne: { id: 100, nom: "baddi", prenom: "youssef" },
+      personnes: [
+        { id: 100, nom: "baddi1", prenom: "youssef1" },
+        { id: 101, nom: "baddi2", prenom: "youssef2" },
+        { id: 102, nom: "baddi3", prenom: "youssef3" },
+        { id: 103, nom: "baddi4", prenom: "youssef4" },
+      ],
+      students: [
+        { id: 100, note: 18, nom: "baddi1", prenom: "youssef1" },
+        { id: 101, note: 16, nom: "baddi2", prenom: "youssef2" },
+        { id: 102, note: 5, nom: "baddi3", prenom: "youssef3" },
+        { id: 103, note: 12, nom: "baddi4", prenom: "youssef4" },
+      ],
+      name: "baddi youssef",
+      lien: "https://ziryabtec.com/",
+      linkTarget: { href: "https://ziryabtec.com/", target: "_blank" },
+      rouge: false,
+      blue: true,
+      gras: true,
+      couleur: "white",
+      couleurBg: "red",
+      disabled: true,
+    };
+  },
+  watch: {
+    message: function (newValue, oldValue) {
+      console.log("message changed from " + oldValue + " to " + newValue);
+    },
+  },
+  methods: {
+    sayHello: function () {
+      alert("hello world");
+    },
+    couleurConditionnelle: function () {
+      if (this.rouge == false) {
+        var resultat = "rouge";
+      } else {
+        var resultat = "bleu";
+      }
+      this.rouge = !this.rouge;
+      return resultat;
+    },
+    showValue: function (str, event) {
+      console.log(str);
+      console.log(event.target.value);
+      console.log(event.data);
+    },
+    updateMassage: function (event) {
+      this.message = event.target.value;
+    },
+  },
+  template: `
+    <div>
         <h1><p v-text="message"></p></h1>
         <!-- <h2><p >{{sayHello("baddi youssef") }}</p></h2> -->
 
@@ -191,25 +228,5 @@
         </div>
 
     </div>
-
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="script.js"></script>
-</body>
-</html>
-
-
-<!-- 
-v-bind
-v-on
-v-model
-v-html
-.....
-cutom directives
--> structral directives: modife le DOM
-v-for
-v-if
-v-else
-v-else-if
-v-show
--> attriubute directives: modifie l'apparence d'un item html 
--->
+  `,
+};
